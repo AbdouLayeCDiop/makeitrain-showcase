@@ -126,6 +126,7 @@
     border-radius: 34px;
     box-shadow: 0 24px 70px rgba(22,39,86,.09);
     backdrop-filter: blur(10px);
+    animation: entrance-slide-left 2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
   }
   .phone-wrap {
     display: flex;
@@ -200,6 +201,15 @@
     padding: 0 20px 46px;
     font-size: .9rem;
   }
+  .pill-link {
+    color: rgba(255,255,255,.75);
+    text-decoration: none;
+    transition: 0.3s;
+  }
+  .pill-link:hover {
+    color: rgba(255,255,255,1);
+    text-shadow: 0px 0px 10px rgba(255,255,255,0.5);
+  }
   .fx-caustic {
     --ink: #ffffff;
     --ink-2: #2fa3df;
@@ -257,7 +267,7 @@
         color-mix(in srgb, var(--ink-3) 42%, transparent)
       );
 
-    animation: fx-caustic 4.2s ease-in-out infinite alternate;
+    animation: fx-caustic 2s ease-in-out infinite alternate;
   }
 
   @keyframes fx-caustic {
@@ -272,7 +282,7 @@
 
       filter:
         drop-shadow(
-          0 0 10px
+          0 0 5px
           color-mix(in srgb, var(--ink-3) 30%, transparent)
         )
         brightness(1);
@@ -307,4 +317,15 @@
     .phone { width: min(100%, 340px); }
     .screen-copy { padding: 4px 6px 12px; }
     .closing { padding: 36px 28px; }
+  }
+
+  @keyframes entrance-slide-left {
+    from {
+      transform: translateX(-100%);
+      opacity: 0;
+    }
+    to {
+      transform: translate(0);
+      opacity: 1;
+    }
   }
